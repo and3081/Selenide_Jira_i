@@ -13,14 +13,17 @@ public class WebHooks {
     @BeforeAll
     public static void setDriverProps() {
         String webDriverLocation = TestData.props.webdriverLocalPath();
+        if (TestData.props.remoutUrl() != null)
+            Configuration.remote = TestData.props.remoutUrl();
         if (webDriverLocation != null) {
             System.setProperty("webdriver.chrome.driver", webDriverLocation);
             System.setProperty("selenide.browser", "Chrome");
-        }
+        } else
+            Configuration.browser = "chrome";
         Configuration.timeout = 6000;
-        Configuration.browser = "chrome";
         Configuration.startMaximized = true;
         Configuration.holdBrowserOpen = true;
+        //Configuration.headless = true;
 
 //        ChromeOptions options = new ChromeOptions();
 //        options.addArguments("start-maximized");
