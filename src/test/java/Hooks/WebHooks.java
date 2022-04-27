@@ -1,18 +1,22 @@
 package Hooks;
 
+import Properties.TestData;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.codeborne.selenide.Selenide.open;
 
 public class WebHooks {
     @BeforeAll
     public static void setDriverProps() {
+        String webDriverLocation = TestData.props.webdriverLocalPath();
+        if (webDriverLocation != null) {
+            System.setProperty("webdriver.chrome.driver", webDriverLocation);
+            System.setProperty("selenide.browser", "Chrome");
+        }
         Configuration.timeout = 6000;
         Configuration.browser = "chrome";
         Configuration.startMaximized = true;
@@ -31,11 +35,11 @@ public class WebHooks {
 
     @BeforeEach
     public void startOpen() {
-        //open("Utils.Configuration.get...");
+        open(TestData.props.baseUrl());
     }
 
     @AfterEach
     public void driverClose() {
-        //WebDriverRunner.closeWebDriver();
+        WebDriverRunner.closeWebDriver();
     }
 }
