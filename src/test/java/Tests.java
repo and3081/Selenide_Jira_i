@@ -1,12 +1,23 @@
 import Hooks.WebHooks;
+import PageObject.TaskListElems;
+import PageSteps.AuthSteps;
+import PageSteps.SysDashboardSteps;
+import PageSteps.TaskListSteps;
 import org.junit.jupiter.api.Test;
-
-import static PageSteps.BaseSteps.clicktoSmth;
-import static com.codeborne.selenide.Selenide.*;
 
 public class Tests extends WebHooks {
     @Test
     public void TestJira(){
-        clicktoSmth();
+        AuthSteps.assertAuthPage();
+        AuthSteps.inputAuthLogin();
+        AuthSteps.inputAuthPsw();
+        AuthSteps.clickAuthButton();
+
+        SysDashboardSteps.assertSysDashboardPage();
+        SysDashboardSteps.clickAuthButton();
+        SysDashboardSteps.clickItemTest();
+
+        TaskListSteps.assertSideBarPage();
+        TaskListSteps.clickTaskListButton();
     }
 }

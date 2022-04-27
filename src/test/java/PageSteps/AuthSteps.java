@@ -1,19 +1,29 @@
 package PageSteps;
 
-import PageObject.AuthElements;
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
+import PageObject.AuthElems;
+import Properties.TestData;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Condition.*;
 
 public class AuthSteps extends BaseSteps {
-    @Step("Проверка страницы авторизации")
-    public static void authAssert(String name) {    // пров.соотв.страницы- заголовки h2...
-//        AuthElements.that.shouldBe(visible);
-//        AuthElements.that.shouldBe(text(name));
+    @Step("Проверка head блока логина страницы авторизации")
+    public static void assertAuthPage() {
+        AuthElems.headLogin.shouldBe(visible);
     }
 
+    @Step("Ввод login на странице авторизации")
+    public static void inputAuthLogin() {
+        AuthElems.fieldLogin.shouldBe(visible, enabled).setValue(TestData.props.loginJira());
+    }
+
+    @Step("Ввод пароля на странице авторизации")
+    public static void inputAuthPsw() {
+        AuthElems.fieldPsw.shouldBe(visible, enabled).setValue(TestData.props.passwordJira());
+    }
+
+    @Step("Нажатие кнопки Вход")
+    public static void clickAuthButton() {
+        AuthElems.buttonLogin.shouldBe(visible, enabled).click();
+    }
 }
