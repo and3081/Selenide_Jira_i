@@ -6,7 +6,7 @@ import org.aeonbits.owner.Config;
 @Config.Sources({
         "system:properties",
         "system:env",
-        "file:props.properties"
+        "file:src/test/resources/props.properties"
 })
 public interface Props extends Config {
     @Key("base.url")

@@ -7,7 +7,6 @@ import static com.codeborne.selenide.Selenide.*;
 public class Tests extends WebHooks {
     @Test
     public void Test_1(){
-        open("https://yandex.ru/");
         clicktoSmth();
     }
 }
