@@ -7,9 +7,9 @@ import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
 
 public class SysDashboardSteps extends BaseSteps {
-    @Step("Проверка head  страницы авторизации")
+    @Step("Проверка dropdown Проекты страницы")
     public static void assertSysDashboardPage() {
-        SysDashboardElems.headSysDashboard.shouldBe(visible);
+        SysDashboardElems.buttonProjects.shouldBe(visible);
     }
 
     @Step("Нажатие dropdown Проекты")

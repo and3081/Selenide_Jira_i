@@ -1,3 +1,4 @@
 /target/allure-results/*
 /target/test-classes/*
 /build/reports/tests/*
+/.allure/*
