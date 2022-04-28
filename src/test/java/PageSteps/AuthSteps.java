@@ -14,12 +14,12 @@ public class AuthSteps extends BaseSteps {
 
     @Step("Ввод login на странице авторизации")
     public static void inputAuthLogin() {
-        AuthElems.fieldLogin.shouldBe(visible, enabled).setValue(TestData.props.loginJira());
+        AuthElems.fieldLogin.shouldBe(visible, enabled).setValue(System.getenv(TestData.props.loginJira()));
     }
 
     @Step("Ввод пароля на странице авторизации")
     public static void inputAuthPsw() {
-        AuthElems.fieldPsw.shouldBe(visible, enabled).setValue(TestData.props.passwordJira());
+        AuthElems.fieldPsw.shouldBe(visible, enabled).setValue(System.getenv(TestData.props.passwordJira()));
     }
 
     @Step("Нажатие кнопки Вход")

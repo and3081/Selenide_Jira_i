@@ -16,7 +16,7 @@ public class TaskListElems extends BaseElems {
     public static final SelenideElement fieldTaskSearch = $x("//input[@aria-label='Поиск задач']");
 
     @Step("Запрос количества задач")
-    public static int getProblemCount() {
+    public static int getTaskCount() {
         return Integer.parseInt(problemCount.shouldBe(visible, enabled).text().trim().split("\\s")[0]);
     }
 }

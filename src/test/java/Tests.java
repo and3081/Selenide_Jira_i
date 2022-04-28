@@ -18,13 +18,13 @@ public class Tests extends WebHooks {
         AuthSteps.clickAuthButton();
 
         SysDashboardSteps.assertSysDashboardPage();
-        SysDashboardSteps.clickAuthButton();
+        SysDashboardSteps.clickProjectsButton();
         SysDashboardSteps.clickItemTest();
 
         TaskListSteps.assertSideBarPage();
         TaskListSteps.clickTaskListButton();
         TaskListSteps.assertTaskCount();
-        System.out.println("Количество задач: " + TaskListElems.getProblemCount());
+        System.out.println("Количество задач: " + TaskListElems.getTaskCount());
         TaskListSteps.searchTask(taskName);
     }
 }

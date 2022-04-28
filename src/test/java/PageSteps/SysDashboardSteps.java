@@ -13,7 +13,7 @@ public class SysDashboardSteps extends BaseSteps {
     }
 
     @Step("Нажатие dropdown Проекты")
-    public static void clickAuthButton() {
+    public static void clickProjectsButton() {
         SysDashboardElems.buttonProjects.shouldBe(visible, enabled).click();
     }
 
