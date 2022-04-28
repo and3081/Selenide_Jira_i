@@ -12,7 +12,7 @@ public class Tests extends WebHooks {
     @DisplayName("Тестирование Jira")
     @ParameterizedTest(name = "{displayName}")
     @MethodSource("ru.vasyukov.TestParams#providerJira")
-    public void TestJira(String taskName, String themeTask, String statDo, String statInWork){
+    public void TestJira(String taskName, String themeTask, String statDo, String statInWork, String statDone){
         AuthSteps.assertAuthPage();
         AuthSteps.inputAuthLogin();
         AuthSteps.inputAuthPsw();
@@ -56,6 +56,12 @@ public class Tests extends WebHooks {
         TasksSteps.clickStatusInWorkButton();
         BaseSteps.checkEndRefresh();
         TasksSteps.assertMyTaskStatus(statInWork);
+        System.out.println("Статус моей задачи: " + TasksElems.getStatusMyTask());
+
+        TasksSteps.clickStatusProcessButton();
+        TasksSteps.clickStatusDoneButton();
+        BaseSteps.checkEndRefresh();
+        TasksSteps.assertMyTaskStatus(statDone);
         System.out.println("Статус моей задачи: " + TasksElems.getStatusMyTask());
     }
 }

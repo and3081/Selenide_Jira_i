@@ -21,6 +21,11 @@ public class TasksElems extends BaseElems {
     public static final SelenideElement statusMyTask = $x("//div[@id='details-module']//span[@id='status-val']");
     public static final SelenideElement buttonStatusInWork =
             $x("//div[@id='issue-content']//a[.//text()='В работе']");
+    public static final SelenideElement buttonStatusProcess =
+            $x("//div[@id='issue-content']//a[.//text()='Бизнес-процесс']");
+    public static final SelenideElement buttonStatusDone =
+            $x("//div[@id='issue-content']//a[.//text()='Выполнено']");
+
 
     public static String getStatusMyTask() {
         return statusMyTask.getText();

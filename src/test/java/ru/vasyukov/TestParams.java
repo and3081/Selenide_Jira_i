@@ -18,6 +18,7 @@ public class TestParams {
         return Stream.of(arguments( "TestSelenium",
                 "Test create task AT and3081",
                 "СДЕЛАТЬ",
-                "В РАБОТЕ" ));
+                "В РАБОТЕ",
+                "ГОТОВО" ));
     }
 }
