@@ -26,5 +26,9 @@ public class Tests extends WebHooks {
         TaskListSteps.assertTaskCount();
         System.out.println("Количество задач: " + TaskListElems.getTaskCount());
         TaskListSteps.searchTask(taskName);
+        TaskListSteps.assertAndClickGoalTask(taskName);
+        TaskListSteps.assertHeadTaskDetail();
+        System.out.println("Статус задачи " +taskName +": " + TaskListElems.getGoalTaskStatus());
+        System.out.println("Версия задачи " +taskName +": " + TaskListElems.getGoalTaskVersion());
     }
 }
