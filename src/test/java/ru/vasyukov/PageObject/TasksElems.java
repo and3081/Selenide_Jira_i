@@ -12,4 +12,11 @@ public class TasksElems extends BaseElems {
             $x("//div[contains(.//text(),'Открытые задачи')]//button[.//text()='Создать задачу']");
     public static final SelenideElement buttonTaskCreateOpenDialog =
             $x("//div[contains(.//text(),'Открытые задачи')]//button[.//text()='Открыть в диалоговом окне']");
+    public static final SelenideElement headAllTasks = $x("//h1[.//text()='Все задачи']");
+    public static final SelenideElement buttonSelectFilters =
+            $x("//h1//button[@aria-label='Переключить фильтр']");
+    public static final SelenideElement itemMyOpenTasks =
+            $x("//div[@id='subnav-opts']//a[text()='Мои открытые задачи']");
+    public static final SelenideElement headMyTask = $x("//h1[@id='summary-val']");
+
 }

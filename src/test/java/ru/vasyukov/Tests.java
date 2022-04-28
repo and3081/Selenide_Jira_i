@@ -43,5 +43,11 @@ public class Tests extends WebHooks {
         TestCreateSteps.clickAssignMe();
 
         TestCreateSteps.clickCreate();
+
+        TasksSteps.assertHeadAllTasks();
+        TasksSteps.clickSelectFiltersButton();
+        TasksSteps.clickItemMyOpenTasks();
+        TasksSteps.assertHeadMyTask(themeTask);
+
     }
 }
