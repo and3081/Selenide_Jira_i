@@ -3,11 +3,15 @@ import PageObject.TaskListElems;
 import PageSteps.AuthSteps;
 import PageSteps.SysDashboardSteps;
 import PageSteps.TaskListSteps;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class Tests extends WebHooks {
-    @Test
-    public void TestJira(){
+    @DisplayName("Тестирование Jira")
+    @ParameterizedTest
+    @MethodSource("TestParams#providerJira")
+    public void TestJira(String taskName){
         AuthSteps.assertAuthPage();
         AuthSteps.inputAuthLogin();
         AuthSteps.inputAuthPsw();
@@ -19,5 +23,8 @@ public class Tests extends WebHooks {
 
         TaskListSteps.assertSideBarPage();
         TaskListSteps.clickTaskListButton();
+        TaskListSteps.assertTaskCount();
+        System.out.println("Количество задач: " + TaskListElems.getProblemCount());
+        TaskListSteps.searchTask(taskName);
     }
 }

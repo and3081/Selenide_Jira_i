@@ -1,6 +1,5 @@
 package PageSteps;
 
-import PageObject.AuthElems;
 import PageObject.SysDashboardElems;
 import io.qameta.allure.Step;
 

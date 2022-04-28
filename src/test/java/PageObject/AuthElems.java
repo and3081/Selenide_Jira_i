@@ -9,5 +9,4 @@ public class AuthElems extends BaseElems {
     public static final SelenideElement fieldLogin = $x("//input[@id='login-form-username']");
     public static final SelenideElement fieldPsw = $x("//input[@id='login-form-password']");
     public static final SelenideElement buttonLogin = $x("//input[@value='Войти']");
-
 }
