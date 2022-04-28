@@ -18,5 +18,11 @@ public class TasksElems extends BaseElems {
     public static final SelenideElement itemMyOpenTasks =
             $x("//div[@id='subnav-opts']//a[text()='Мои открытые задачи']");
     public static final SelenideElement headMyTask = $x("//h1[@id='summary-val']");
+    public static final SelenideElement statusMyTask = $x("//div[@id='details-module']//span[@id='status-val']");
+    public static final SelenideElement buttonStatusInWork =
+            $x("//div[@id='issue-content']//a[.//text()='В работе']");
 
+    public static String getStatusMyTask() {
+        return statusMyTask.getText();
+    }
 }

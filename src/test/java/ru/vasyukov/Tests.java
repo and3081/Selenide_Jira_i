@@ -2,6 +2,7 @@ package ru.vasyukov;
 
 import ru.vasyukov.Hooks.WebHooks;
 import ru.vasyukov.PageObject.TaskListElems;
+import ru.vasyukov.PageObject.TasksElems;
 import ru.vasyukov.PageSteps.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,7 +12,7 @@ public class Tests extends WebHooks {
     @DisplayName("Тестирование Jira")
     @ParameterizedTest(name = "{displayName}")
     @MethodSource("ru.vasyukov.TestParams#providerJira")
-    public void TestJira(String taskName, String themeTask){
+    public void TestJira(String taskName, String themeTask, String statDo, String statInWork){
         AuthSteps.assertAuthPage();
         AuthSteps.inputAuthLogin();
         AuthSteps.inputAuthPsw();
@@ -49,5 +50,12 @@ public class Tests extends WebHooks {
         TasksSteps.clickItemMyOpenTasks();
         TasksSteps.assertHeadMyTask(themeTask);
 
+        TasksSteps.assertMyTaskStatus(statDo);
+        System.out.println("Статус моей задачи: " + TasksElems.getStatusMyTask());
+
+        TasksSteps.clickStatusInWorkButton();
+        BaseSteps.checkEndRefresh();
+        TasksSteps.assertMyTaskStatus(statInWork);
+        System.out.println("Статус моей задачи: " + TasksElems.getStatusMyTask());
     }
 }

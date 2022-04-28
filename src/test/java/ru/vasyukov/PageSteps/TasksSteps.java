@@ -1,6 +1,7 @@
 package ru.vasyukov.PageSteps;
 
 import io.qameta.allure.Step;
+import org.junit.jupiter.api.Assertions;
 import ru.vasyukov.PageObject.BaseElems;
 import ru.vasyukov.PageObject.TasksElems;
 
@@ -50,5 +51,15 @@ public class TasksSteps extends BaseSteps {
     @Step("Проверка head Моей задачи: {taskName}")
     public static void assertHeadMyTask(String taskName) {
         TasksElems.headMyTask.shouldBe(visible, exactText(taskName));
+    }
+
+    @Step("Проверка статуса моей задачи: {stat}")
+    public static void assertMyTaskStatus(String stat) {
+        Assertions.assertEquals(stat, TasksElems.getStatusMyTask(), "Статус не равен " + stat);
+    }
+
+    @Step("Нажатие кнопки В работе")
+    public static void clickStatusInWorkButton() {
+        TasksElems.buttonStatusInWork.shouldBe(visible, enabled).click();
     }
 }
