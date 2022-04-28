@@ -20,7 +20,7 @@ public class WebHooks {
             System.setProperty("selenide.browser", "Chrome");
         } else
             Configuration.browser = "chrome";
-        Configuration.timeout = 6000;
+        Configuration.timeout = 10000;
         Configuration.startMaximized = true;
         Configuration.holdBrowserOpen = true;
         //Configuration.headless = true;

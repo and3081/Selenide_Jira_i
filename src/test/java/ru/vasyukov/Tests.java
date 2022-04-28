@@ -46,7 +46,6 @@ public class Tests extends WebHooks {
         TestCreateSteps.inputFieldTheme(themeTask);
         TestCreateSteps.selectVersion(version);
         TestCreateSteps.clickAssignMe();
-
         TestCreateSteps.clickCreate();
 
         TasksSteps.assertHeadAllTasks();

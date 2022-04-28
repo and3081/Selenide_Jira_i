@@ -32,11 +32,13 @@ public class TestCreateSteps extends BaseSteps {
 
     @Step("Ввод Описание")
     public static void inputDescription(){
+        //Frame.inputToBodyFrame(TestCreateElem.fieldNumDescription, "Описание дай пять");
         Frame.inputToBodyFrame(TestCreateElem.fieldDescription, "Описание дай пять");
     }
 
     @Step("Ввод Окружение")
     public static void inputEnvironment(){
+        //Frame.inputToBodyFrame(TestCreateElem.fieldNumEnvironment, "Окружение держи пять");
         Frame.inputToBodyFrame(TestCreateElem.fieldEnvironment, "Окружение держи пять");
     }
 

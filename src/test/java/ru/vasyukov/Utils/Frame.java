@@ -22,4 +22,14 @@ public class Frame {
     }
 
     public static void selectOutFrame() { driver.switchTo().defaultContent(); }
+
+    public static void inputToBodyFrame(int index, String text) {
+        selectInFrame(index);
+        $x("//body").shouldBe(exist, visible, enabled).setValue(text);
+        selectOutFrame();
+    }
+
+    public static void selectInFrame(int index) {
+        driver.switchTo().frame(index);
+    }
 }
