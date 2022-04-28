@@ -26,7 +26,6 @@ public class TasksElems extends BaseElems {
     public static final SelenideElement buttonStatusDone =
             $x("//div[@id='issue-content']//a[.//text()='Выполнено']");
 
-
     public static String getStatusMyTask() {
         return statusMyTask.getText();
     }

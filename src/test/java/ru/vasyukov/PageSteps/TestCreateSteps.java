@@ -3,6 +3,7 @@ package ru.vasyukov.PageSteps;
 import io.qameta.allure.Step;
 import ru.vasyukov.PageObject.TestCreateElem;
 import ru.vasyukov.Utils.Acts;
+import ru.vasyukov.Utils.Frame;
 
 import static com.codeborne.selenide.Condition.*;
 
@@ -22,6 +23,21 @@ public class TestCreateSteps extends BaseSteps {
     @Step("Ввод темы задачи {themeTask}")
     public static void inputFieldTheme(String themeTask) {
         TestCreateElem.fieldTheme.shouldBe(exist, visible, enabled).setValue(themeTask);
+    }
+
+    @Step("Ввод в Затронуты версии")
+    public static void selectVersion(String version){
+        TestCreateElem.selectVersion.selectOptionContainingText(version);
+    }
+
+    @Step("Ввод Описание")
+    public static void inputDescription(){
+        Frame.inputToBodyFrame(TestCreateElem.fieldDescription, "Описание дай пять");
+    }
+
+    @Step("Ввод Окружение")
+    public static void inputEnvironment(){
+        Frame.inputToBodyFrame(TestCreateElem.fieldEnvironment, "Окружение держи пять");
     }
 
     @Step("Нажатие кнопки Назначить меня")

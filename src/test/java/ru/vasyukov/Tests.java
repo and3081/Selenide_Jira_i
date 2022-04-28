@@ -30,7 +30,8 @@ public class Tests extends WebHooks {
         TaskListSteps.assertAndClickGoalTask(taskName);
         TaskListSteps.assertHeadTaskDetail();
         System.out.println("Статус задачи " +taskName +": " + TaskListElems.getGoalTaskStatus());
-        System.out.println("Версия задачи " +taskName +": " + TaskListElems.getGoalTaskVersion());
+        String version = TaskListElems.getGoalTaskVersion();
+        System.out.println("Версия задачи " +taskName +": " + version);
 
         TasksSteps.assertSideBarPage();
         TasksSteps.clickTasksButton();
@@ -40,7 +41,10 @@ public class Tests extends WebHooks {
 
         TestCreateSteps.assertHeadTestCreate();
         TestCreateSteps.inputTypeTask();
+        TestCreateSteps.inputDescription();
+        TestCreateSteps.inputEnvironment();
         TestCreateSteps.inputFieldTheme(themeTask);
+        TestCreateSteps.selectVersion(version);
         TestCreateSteps.clickAssignMe();
 
         TestCreateSteps.clickCreate();
