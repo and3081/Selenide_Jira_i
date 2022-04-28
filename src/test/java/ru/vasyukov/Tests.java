@@ -2,13 +2,10 @@ package ru.vasyukov;
 
 import ru.vasyukov.Hooks.WebHooks;
 import ru.vasyukov.PageObject.TaskListElems;
-import ru.vasyukov.PageSteps.AuthSteps;
-import ru.vasyukov.PageSteps.SysDashboardSteps;
-import ru.vasyukov.PageSteps.TaskListSteps;
+import ru.vasyukov.PageSteps.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import ru.vasyukov.PageSteps.TestCreateSteps;
 
 public class Tests extends WebHooks {
     @DisplayName("Тестирование Jira")
@@ -33,11 +30,18 @@ public class Tests extends WebHooks {
         TaskListSteps.assertHeadTaskDetail();
         System.out.println("Статус задачи " +taskName +": " + TaskListElems.getGoalTaskStatus());
         System.out.println("Версия задачи " +taskName +": " + TaskListElems.getGoalTaskVersion());
-        TaskListSteps.clickTaskCreateButton();
-        TaskListSteps.clickTaskCreateOpenDialogButton();
+
+        TasksSteps.assertSideBarPage();
+        TasksSteps.clickTasksButton();
+        TasksSteps.assertHeadOpenTasks();
+        TasksSteps.clickTaskCreateButton();
+        TasksSteps.clickTaskCreateOpenDialogButton();
 
         TestCreateSteps.assertHeadTestCreate();
         TestCreateSteps.inputTypeTask();
         TestCreateSteps.inputFieldTheme(themeTask);
+        TestCreateSteps.clickAssignMe();
+
+        TestCreateSteps.clickCreate();
     }
 }

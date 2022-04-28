@@ -1,5 +1,6 @@
 package ru.vasyukov.PageSteps;
 
+import ru.vasyukov.PageObject.BaseElems;
 import ru.vasyukov.PageObject.TaskListElems;
 import io.qameta.allure.Step;
 
@@ -9,7 +10,7 @@ import static com.codeborne.selenide.Condition.*;
 public class TaskListSteps extends BaseSteps {
     @Step("Проверка сайд-бара страницы")
     public static void assertSideBarPage() {
-        TaskListElems.sideBar.shouldBe(visible);
+        BaseElems.sideBar.shouldBe(visible);
     }
 
     @Step("Нажатие кнопки сайд-бар Список задач")
@@ -38,15 +39,5 @@ public class TaskListSteps extends BaseSteps {
     @Step("Проверка head деталей задачи")
     public static void assertHeadTaskDetail() {
         TaskListElems.goalTaskDetail.shouldBe(visible);
-    }
-
-    @Step("Нажатие кнопки Создать задачу")
-    public static void clickTaskCreateButton() {
-        TaskListElems.buttonTaskCreate.shouldBe(visible, enabled).click();
-    }
-
-    @Step("Нажатие кнопки Открыть в диалоговом окне")
-    public static void clickTaskCreateOpenDialogButton() {
-        TaskListElems.buttonTaskCreateOpenDialog.shouldBe(visible, enabled).click();
     }
 }

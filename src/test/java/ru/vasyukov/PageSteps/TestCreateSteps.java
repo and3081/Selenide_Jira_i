@@ -1,7 +1,6 @@
 package ru.vasyukov.PageSteps;
 
 import io.qameta.allure.Step;
-import ru.vasyukov.PageObject.SysDashboardElems;
 import ru.vasyukov.PageObject.TestCreateElem;
 import ru.vasyukov.Utils.Acts;
 
@@ -23,5 +22,15 @@ public class TestCreateSteps extends BaseSteps {
     @Step("Ввод темы задачи {themeTask}")
     public static void inputFieldTheme(String themeTask) {
         TestCreateElem.fieldTheme.shouldBe(visible, enabled).setValue(themeTask);
+    }
+
+    @Step("Нажатие кнопки Назначить меня")
+    public static void clickAssignMe() {
+        TestCreateElem.buttonAssignMe.shouldBe(visible, enabled).click();
+    }
+
+    @Step("Нажатие кнопки Создать")
+    public static void clickCreate() {
+        TestCreateElem.buttonCreate.shouldBe(visible, enabled).click();
     }
 }

@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class TaskListElems extends BaseElems {
-    public static final SelenideElement sideBar = $x("//section[@id='sidebar']");
     public static final SelenideElement buttonTaskList =
             $x("//section[@id='sidebar']//a[.//text()='Список задач']");
     public static final SelenideElement problemCount =
@@ -20,10 +19,6 @@ public class TaskListElems extends BaseElems {
     public static final SelenideElement goalTaskDetail = $x("//h4[text()='Детали задачи']");
     public static final SelenideElement goalTaskStatus = $x("//span[@id='status-val']");
     public static final SelenideElement goalTaskVersion = $x("//span[@id='versions-field']");
-    public static final SelenideElement buttonTaskCreate =
-            $x("//div[contains(.//text(),'Список задач')]//button[.//text()='Создать задачу']");
-    public static final SelenideElement buttonTaskCreateOpenDialog =
-            $x("//div[contains(.//text(),'Список задач')]//button[.//text()='Открыть в диалоговом окне']");
 
     @Step("Запрос количества задач")
     public static int getTaskCount() {
