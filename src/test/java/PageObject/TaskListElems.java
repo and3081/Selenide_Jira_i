@@ -20,6 +20,12 @@ public class TaskListElems extends BaseElems {
     public static final SelenideElement goalTaskDetail = $x("//h4[text()='Детали задачи']");
     public static final SelenideElement goalTaskStatus = $x("//span[@id='status-val']");
     public static final SelenideElement goalTaskVersion = $x("//span[@id='versions-field']");
+    public static final SelenideElement buttonTaskCreate =
+            $x("//div[contains(.//text(),'Список задач')]//button[.//text()='Создать задачу']");
+    public static final SelenideElement buttonTaskCreateOpenDialog =
+            $x("//div[contains(.//text(),'Список задач')]//button[.//text()='Открыть в диалоговом окне']");
+    public static final SelenideElement fieldCreateShouldDone =
+            $x("//div[contains(.//text(),'Список задач')]//textarea[@aria-label[contains(.,'Что должно быть сделано')]]");
 
     @Step("Запрос количества задач")
     public static int getTaskCount() {

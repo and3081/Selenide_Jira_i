@@ -9,9 +9,9 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 public class Tests extends WebHooks {
     @DisplayName("Тестирование Jira")
-    @ParameterizedTest
+    @ParameterizedTest(name = "{displayName}")
     @MethodSource("TestParams#providerJira")
-    public void TestJira(String taskName){
+    public void TestJira(String taskName, String textShouldDone){
         AuthSteps.assertAuthPage();
         AuthSteps.inputAuthLogin();
         AuthSteps.inputAuthPsw();
@@ -30,5 +30,8 @@ public class Tests extends WebHooks {
         TaskListSteps.assertHeadTaskDetail();
         System.out.println("Статус задачи " +taskName +": " + TaskListElems.getGoalTaskStatus());
         System.out.println("Версия задачи " +taskName +": " + TaskListElems.getGoalTaskVersion());
+        TaskListSteps.clickTaskCreateButton();
+        TaskListSteps.clickTaskCreateOpenDialogButton();
+        //TaskListSteps.inputTextShouldDone(textShouldDone);
     }
 }

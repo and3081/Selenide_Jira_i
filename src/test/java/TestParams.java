@@ -13,6 +13,7 @@ public class TestParams {
      * @return  стрим аргументов (наим.задачи)
      */
     protected static Stream<Arguments> providerJira() {
-        return Stream.of(arguments("TestSelenium"));
+        return Stream.of(arguments("TestSelenium",
+                "Test create task AT and3081"));
     }
 }

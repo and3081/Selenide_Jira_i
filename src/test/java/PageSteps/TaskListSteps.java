@@ -1,6 +1,8 @@
 package PageSteps;
 
+import PageObject.AuthElems;
 import PageObject.TaskListElems;
+import Properties.TestData;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.CollectionCondition.size;
@@ -38,5 +40,20 @@ public class TaskListSteps extends BaseSteps {
     @Step("Проверка head деталей задачи")
     public static void assertHeadTaskDetail() {
         TaskListElems.goalTaskDetail.shouldBe(visible);
+    }
+
+    @Step("Нажатие кнопки Создать задачу")
+    public static void clickTaskCreateButton() {
+        TaskListElems.buttonTaskCreate.shouldBe(visible, enabled).click();
+    }
+
+    @Step("Нажатие кнопки Открыть в диалоговом окне")
+    public static void clickTaskCreateOpenDialogButton() {
+        TaskListElems.buttonTaskCreateOpenDialog.shouldBe(visible, enabled).click();
+    }
+
+    @Step("Ввод текста задачи {textShouldDone}")
+    public static void inputTextShouldDone(String textShouldDone) {
+        TaskListElems.fieldCreateShouldDone.shouldBe(visible, enabled).setValue(textShouldDone);
     }
 }
