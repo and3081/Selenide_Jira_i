@@ -10,9 +10,5 @@ public class Acts {
     public static final WebDriver driver = getWebDriver();
     public static final Actions acts = new Actions(driver);
 
-    public static void sendDown() { acts.sendKeys(Keys.DOWN).perform(); }
-
-    public static void sendEnter() {
-        acts.sendKeys(Keys.ENTER).perform();
-    }
+    public static final String clearField = Keys.chord(Keys.CONTROL, "A", Keys.DELETE);
 }

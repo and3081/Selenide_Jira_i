@@ -1,5 +1,6 @@
 package ru.vasyukov.PageSteps;
 
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import ru.vasyukov.PageObject.TestCreateElem;
 import ru.vasyukov.Utils.Acts;
@@ -13,21 +14,25 @@ public class TestCreateSteps extends TestCreateElem {
         headCreateWindow.shouldBe(exist, visible, text("Создание задачи"));
     }
 
-    @Step("Нажатие combobox Тип задачи, выбор item Ошибка")
-    public static void inputTypeTask() {
-        fieldTypeTask.shouldBe(exist, visible, enabled).click();
-        Acts.sendDown();
-        Acts.sendEnter();
+    @Step("Ввод Тип задачи {typeTask}")
+    public static void inputTypeTask(String typeTask) {
+        SelenideElement el = fieldTypeTask.shouldBe(exist, visible, enabled)
+                .setValue(Acts.clearField + typeTask);
     }
 
     @Step("Ввод темы задачи {themeTask}")
     public static void inputFieldTheme(String themeTask) {
-        fieldTheme.shouldBe(exist, visible, enabled).setValue(themeTask);
+        SelenideElement el = fieldTheme.shouldBe(exist, visible, enabled).setValue(themeTask);
+    }
+
+    @Step("Ввод в Исправить версии")
+    public static void selectFixVersion(String version){
+        selectFixVersion.selectOptionContainingText(version);
     }
 
     @Step("Ввод в Затронуты версии")
-    public static void selectVersion(String version){
-        selectVersion.selectOptionContainingText(version);
+    public static void selectTouchVersion(String version){
+        selectTouchVersion.selectOptionContainingText(version);
     }
 
     @Step("Ввод Описание")

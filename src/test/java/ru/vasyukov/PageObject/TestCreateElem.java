@@ -9,7 +9,8 @@ public class TestCreateElem extends BaseElems {
     public static final SelenideElement headCreateWindow = $x(baseCreateWindow + "//h2");
     public static final SelenideElement fieldTypeTask = $x(baseCreateWindow + "//input[@id='issuetype-field']");
     public static final SelenideElement fieldTheme = $x(baseCreateWindow + "//input[@id='summary']");
-    public static final SelenideElement selectVersion = $x(baseCreateWindow + "//select[@id='versions']");
+    public static final SelenideElement selectFixVersion = $x(baseCreateWindow + "//select[@id='fixVersions']");
+    public static final SelenideElement selectTouchVersion = $x(baseCreateWindow + "//select[@id='versions']");
     public static final SelenideElement buttonAssignMe = $x(baseCreateWindow + "//button[text()='Назначить меня']");
     //public static final int fieldNumDescription = 0;
     //public static final int fieldNumEnvironment = 1;

@@ -17,6 +17,7 @@ public class TestParams {
     protected static Stream<Arguments> providerJira() {
         return Stream.of(arguments( "TestSelenium",
                 "Test create task AT and3081",
+                "Ошибка",
                 "СДЕЛАТЬ",
                 "В РАБОТЕ",
                 "ГОТОВО" ));
