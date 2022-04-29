@@ -8,6 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import static ru.vasyukov.PageObject.BaseElems.clickSideBarTaskListButton;
+
 public class Tests extends WebHooks {
 
     @DisplayName("Тест Авторизации")
@@ -30,7 +32,7 @@ public class Tests extends WebHooks {
     public void TestCountInProject(String projectFullName, String projectName) {
         AuthSteps.auth();
         SysDashboardSteps.enteringProject(projectFullName, projectName);
-        TaskListSteps.clickSideBarTaskListButton();
+        clickSideBarTaskListButton();
         TaskListSteps.assertTaskCount();
         System.out.println("Количество задач: " + TaskListSteps.getTaskCount());
     }
@@ -42,7 +44,7 @@ public class Tests extends WebHooks {
         AuthSteps.auth();
         SysDashboardSteps.clickProjectsButton();
         SysDashboardSteps.clickItemTest(projectFullName);
-        TaskListSteps.clickSideBarTaskListButton();
+        clickSideBarTaskListButton();
         TaskListSteps.searchTask(taskName);
         TaskListSteps.assertAndClickGoalTask(taskName);
         TaskListSteps.assertHeadTaskDetail();
