@@ -7,7 +7,7 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.*;
 
-public class TaskListSteps extends BaseSteps {
+public class TaskListSteps extends TaskListElems {
     @Step("Проверка сайд-бара страницы")
     public static void assertSideBarPage() {
         BaseElems.sideBar.shouldBe(exist, visible);
@@ -15,29 +15,28 @@ public class TaskListSteps extends BaseSteps {
 
     @Step("Нажатие кнопки сайд-бар Список задач")
     public static void clickTaskListButton() {
-        TaskListElems.buttonTaskList.shouldBe(exist, visible, enabled).click();
+        buttonTaskList.shouldBe(exist, visible, enabled).click();
     }
 
     @Step("Проверка наличия количества задач")
     public static void assertTaskCount() {
-        TaskListElems.problemCount.shouldBe(exist, visible);
+        problemCount.shouldBe(exist, visible);
     }
 
     @Step("Поиск задачи {name}")
     public static void searchTask(String name) {
-        TaskListElems.fieldTaskSearch.shouldBe(exist, visible, enabled).setValue(name).pressEnter();
+        fieldTaskSearch.shouldBe(exist, visible, enabled).setValue(name).pressEnter();
     }
 
     @Step("Проверка поиска и клик задачи {name}")
     public static void assertAndClickGoalTask(String name) {
-        TaskListElems.rowsTaskTitles
-                .shouldBe(size(1))
+        rowsTaskTitles.shouldBe(size(1))
                 .findBy(attribute("title", name))
                 .shouldBe(exist, visible, enabled).click();
     }
 
     @Step("Проверка head деталей задачи")
     public static void assertHeadTaskDetail() {
-        TaskListElems.goalTaskDetail.shouldBe(exist, visible);
+        goalTaskDetail.shouldBe(exist, visible);
     }
 }

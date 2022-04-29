@@ -5,19 +5,19 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.*;
 
-public class SysDashboardSteps extends BaseSteps {
+public class SysDashboardSteps extends SysDashboardElems {
     @Step("Проверка dropdown Проекты страницы")
     public static void assertSysDashboardPage() {
-        SysDashboardElems.buttonProjects.shouldBe(exist, visible);
+        buttonProjects.shouldBe(exist, visible);
     }
 
     @Step("Нажатие dropdown Проекты")
     public static void clickProjectsButton() {
-        SysDashboardElems.buttonProjects.shouldBe(exist, visible, enabled).click();
+        buttonProjects.shouldBe(exist, visible, enabled).click();
     }
 
     @Step("Нажатие item Test (TEST)")
     public static void clickItemTest() {
-        SysDashboardElems.itemTestProject.shouldBe(exist, visible, enabled).click();
+        itemTestProject.shouldBe(exist, visible, enabled).click();
     }
 }

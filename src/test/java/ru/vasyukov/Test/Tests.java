@@ -1,4 +1,4 @@
-package ru.vasyukov;
+package ru.vasyukov.Test;
 
 import ru.vasyukov.Hooks.WebHooks;
 import ru.vasyukov.PageObject.TaskListElems;
@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 public class Tests extends WebHooks {
     @DisplayName("Тестирование Jira")
     @ParameterizedTest(name = "{displayName}")
-    @MethodSource("ru.vasyukov.TestParams#providerJira")
+    @MethodSource("ru.vasyukov.Test.TestParams#providerJira")
     public void TestJira(String taskName, String themeTask, String statDo, String statInWork, String statDone){
         AuthSteps.assertAuthPage();
         AuthSteps.inputAuthLogin();
@@ -57,13 +57,13 @@ public class Tests extends WebHooks {
         System.out.println("Статус моей задачи: " + TasksElems.getStatusMyTask());
 
         TasksSteps.clickStatusInWorkButton();
-        BaseSteps.checkEndRefresh();
+        TasksSteps.checkEndRefresh();
         TasksSteps.assertMyTaskStatus(statInWork);
         System.out.println("Статус моей задачи: " + TasksElems.getStatusMyTask());
 
         TasksSteps.clickStatusProcessButton();
         TasksSteps.clickStatusDoneButton();
-        BaseSteps.checkEndRefresh();
+        TasksSteps.checkEndRefresh();
         TasksSteps.assertMyTaskStatus(statDone);
         System.out.println("Статус моей задачи: " + TasksElems.getStatusMyTask());
     }
