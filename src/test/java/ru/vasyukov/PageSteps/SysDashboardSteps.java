@@ -6,9 +6,12 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.*;
 
 public class SysDashboardSteps extends SysDashboardElems {
-    @Step("Проверка dropdown Проекты страницы")
-    public static void assertSysDashboardPage() {
-        buttonProjects.shouldBe(exist, visible);
+    public static void enteringProject(String projectFullName, String projectName) {
+        clickProjectsButton();
+        clickItemTest(projectFullName);
+        assertSideBarPage();
+        clickSideBarTasksButton();
+        assertLinkProjects(projectName);
     }
 
     @Step("Нажатие dropdown Проекты")
@@ -16,8 +19,13 @@ public class SysDashboardSteps extends SysDashboardElems {
         buttonProjects.shouldBe(exist, visible, enabled).click();
     }
 
-    @Step("Нажатие item Test (TEST)")
-    public static void clickItemTest() {
-        itemTestProject.shouldBe(exist, visible, enabled).click();
+    @Step("Нажатие item {projectFullName}")
+    public static void clickItemTest(String projectFullName) {
+        getItemProject(projectFullName).shouldBe(exist, visible, enabled).click();
+    }
+
+    @Step("Проверка наличия линка {projectName}")
+    public static void assertLinkProjects(String projectName) {
+        getLinkProject(projectName).shouldBe(exist, visible);
     }
 }

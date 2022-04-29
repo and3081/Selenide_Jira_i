@@ -2,20 +2,16 @@ package ru.vasyukov.PageSteps;
 
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
-import ru.vasyukov.PageObject.BaseElems;
 import ru.vasyukov.PageObject.TasksElems;
 
 import static com.codeborne.selenide.Condition.*;
 
 public class TasksSteps extends TasksElems {
-    @Step("Проверка сайд-бара страницы")
-    public static void assertSideBarPage() {
-        BaseElems.sideBar.shouldBe(exist, visible);
-    }
-
-    @Step("Нажатие кнопки сайд-бар Задачи")
-    public static void clickTasksButton() {
-        buttonTasks.shouldBe(exist, visible, enabled).click();
+    public static void assertTaskCreated(String themeTask) {
+        assertHeadAllTasks();
+        clickSelectFiltersButton();
+        clickItemMyOpenTasks();
+        assertHeadMyTask(themeTask);
     }
 
     @Step("Проверка head Задачи")
@@ -55,6 +51,7 @@ public class TasksSteps extends TasksElems {
 
     @Step("Проверка статуса моей задачи: {stat}")
     public static void assertMyTaskStatus(String stat) {
+        checkEndRefresh();
         Assertions.assertEquals(stat, getStatusMyTask(), "Статус не равен " + stat);
     }
 
