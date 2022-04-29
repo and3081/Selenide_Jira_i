@@ -30,7 +30,6 @@ public class Tests extends WebHooks {
     public void TestCountInProject(String projectFullName, String projectName) {
         AuthSteps.auth();
         SysDashboardSteps.enteringProject(projectFullName, projectName);
-        TaskListSteps.assertSideBarPage();
         TaskListSteps.clickSideBarTaskListButton();
         TaskListSteps.assertTaskCount();
         System.out.println("Количество задач: " + TaskListSteps.getTaskCount());
@@ -43,7 +42,6 @@ public class Tests extends WebHooks {
         AuthSteps.auth();
         SysDashboardSteps.clickProjectsButton();
         SysDashboardSteps.clickItemTest(projectFullName);
-        TaskListSteps.assertSideBarPage();
         TaskListSteps.clickSideBarTaskListButton();
         TaskListSteps.searchTask(taskName);
         TaskListSteps.assertAndClickGoalTask(taskName);

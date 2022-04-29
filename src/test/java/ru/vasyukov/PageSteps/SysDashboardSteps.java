@@ -9,7 +9,6 @@ public class SysDashboardSteps extends SysDashboardElems {
     public static void enteringProject(String projectFullName, String projectName) {
         clickProjectsButton();
         clickItemTest(projectFullName);
-        assertSideBarPage();
         clickSideBarTasksButton();
         assertLinkProjects(projectName);
     }

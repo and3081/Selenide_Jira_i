@@ -16,18 +16,15 @@ public class BaseElems {
             $x("//section[@id='sidebar']//a[.//text()='Задачи']");
     public static final SelenideElement waitRefresh = $x("//div[@id='page']");
 
-    @Step("Проверка сайд-бара страницы")
-    public static void assertSideBarPage() {
-        sideBar.shouldBe(exist, visible);
-    }
-
     @Step("Нажатие кнопки сайд-бар Список задач")
     public static void clickSideBarTaskListButton() {
+        sideBar.shouldBe(exist, visible);
         buttonSideBarTaskList.shouldBe(exist, visible, enabled).click();
     }
 
     @Step("Нажатие кнопки сайд-бар Задачи")
     public static void clickSideBarTasksButton() {
+        sideBar.shouldBe(exist, visible);
         buttonSideBarTasks.shouldBe(exist, visible, enabled).click();
     }
 

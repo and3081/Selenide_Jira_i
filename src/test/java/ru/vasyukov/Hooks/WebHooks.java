@@ -22,7 +22,7 @@ public class WebHooks {
             Configuration.browser = "chrome";
         Configuration.timeout = 5000;
         Configuration.startMaximized = true;
-        Configuration.holdBrowserOpen = true;
+        //Configuration.holdBrowserOpen = true;
         //Configuration.headless = true;
 
 //        ChromeOptions options = new ChromeOptions();
