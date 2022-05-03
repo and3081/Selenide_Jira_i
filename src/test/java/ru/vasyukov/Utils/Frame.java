@@ -1,15 +1,12 @@
 package ru.vasyukov.Utils;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static com.codeborne.selenide.Selenide.switchTo;
 
 public class Frame {
-    public static final WebDriver driver = getWebDriver();
-
     public static void inputToBodyFrame(SelenideElement elemIframe, String text) {
         selectInFrame(elemIframe);
         $x("//body").shouldBe(exist, visible, enabled).setValue(text);
@@ -18,18 +15,18 @@ public class Frame {
 
     public static void selectInFrame(SelenideElement elemIframe) {
         elemIframe.shouldBe(exist);
-        driver.switchTo().frame(elemIframe);
+        switchTo().frame(elemIframe);
     }
 
-    public static void selectOutFrame() { driver.switchTo().defaultContent(); }
+    public static void selectOutFrame() { switchTo().defaultContent(); }
 
-    public static void inputToBodyFrame(int index, String text) {
-        selectInFrame(index);
-        $x("//body").shouldBe(exist, visible, enabled).setValue(text);
-        selectOutFrame();
-    }
-
-    public static void selectInFrame(int index) {
-        driver.switchTo().frame(index);
-    }
+//    public static void inputToBodyFrame(int index, String text) {
+//        selectInFrame(index);
+//        $x("//body").shouldBe(exist, visible, enabled).setValue(text);
+//        selectOutFrame();
+//    }
+//
+//    public static void selectInFrame(int index) {
+//        switchTo().frame(index);
+//    }
 }
