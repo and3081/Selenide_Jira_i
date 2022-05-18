@@ -13,8 +13,8 @@ public class WebHooks {
     @BeforeAll
     public static void setDriverProps() {
         String webDriverLocation = TestData.props.webdriverLocalPath();
-        if (TestData.props.remoutUrl() != null)
-            Configuration.remote = TestData.props.remoutUrl();
+        if (TestData.props.remoteUrl() != null)
+            Configuration.remote = TestData.props.remoteUrl();
         if (webDriverLocation != null) {
             System.setProperty("webdriver.chrome.driver", webDriverLocation);
             System.setProperty("selenide.browser", "Chrome");

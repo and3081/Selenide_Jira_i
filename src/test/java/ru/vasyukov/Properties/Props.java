@@ -17,6 +17,6 @@ public interface Props extends Config {
     String passwordJira();
     @Key("webdriver.local.path")
     String webdriverLocalPath();
-    @Key("remout.url")
-    String remoutUrl();
+    @Key("remote.url")
+    String remoteUrl();
 }
