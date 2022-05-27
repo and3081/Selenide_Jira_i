@@ -17,4 +17,16 @@ public interface Application extends Config {
 
     @Key("password")
     String passwordJira();
+
+    @Key("project.full.name")
+    String projectFullName();
+
+    @Key("project.name")
+    String projectName();
+
+    @Key("task.name")
+    String taskName();
+
+    @Key("task.type")
+    String taskType();
 }

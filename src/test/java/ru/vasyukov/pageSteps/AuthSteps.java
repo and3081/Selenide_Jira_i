@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
 
 public class AuthSteps extends AuthElems {
+    @Step("Авторизация")
     public static void auth() {
         assertAuthPage();
         inputAuthLogin();

@@ -183,11 +183,11 @@ public class Listeners implements WebDriverListener {
         if ((getListenerAround() <= 2 || method.getName().equals("click")) && checkMethod(method.getName())) {
             if (lastListenedDriver != null && getListenerModeElements() != 2) {
                 new Actions(lastListenedDriver).moveToElement(el).perform();
-                Screenshoter.getScreenDriver("Перед", lastListenedDriver, method.getName(), "args:  ",
+                Screenshoter.getScreenDriver("Перед-win", lastListenedDriver, method.getName(), "args:  ",
                         Arrays.toString(args));
             }
             if (lastListenedDriver == null || getListenerModeElements() != 1) {
-                Screenshoter.getScreenElement("Перед", el, method.getName(), "args:  ",
+                Screenshoter.getScreenElement("Перед-el", el, method.getName(), "args:  ",
                         Arrays.toString(args));
             }
         }
@@ -208,11 +208,11 @@ public class Listeners implements WebDriverListener {
             // то на момент попытки afterМетода el уже не существует, afterМетод проигнорится !
             if (lastListenedDriver != null && getListenerModeElements() != 2) {
                 new Actions(lastListenedDriver).moveToElement(el).perform();
-                Screenshoter.getScreenDriver("После", lastListenedDriver, method.getName(), "return:",
+                Screenshoter.getScreenDriver("После-win", lastListenedDriver, method.getName(), "return:",
                         (result == null) ? "void" : result.toString());
             }
             if (lastListenedDriver == null || getListenerModeElements() != 1) {
-                Screenshoter.getScreenElement("После", el, method.getName(), "return:",
+                Screenshoter.getScreenElement("После-el", el, method.getName(), "return:",
                         (result == null) ? "void" : result.toString());
             }
         }

@@ -1,20 +1,32 @@
 package ru.vasyukov.pageSteps;
 
 import io.qameta.allure.Step;
+import org.junit.jupiter.api.Assertions;
 import ru.vasyukov.pageObjects.TaskListElems;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.*;
 
 public class TaskListSteps extends TaskListElems {
+    @Step("Вход в задачу")
+    public static void enteringTask(String projectFullName, String taskName) {
+        SysDashboardSteps.clickProjectsButton();
+        SysDashboardSteps.clickItemTest(projectFullName);
+        clickSideBarTaskListButton();
+        TaskListSteps.searchTask(taskName);
+        TaskListSteps.assertAndClickGoalTask(taskName);
+    }
+
     @Step("Проверка наличия количества задач")
     public static void assertTaskCount() {
         problemCount.shouldBe(visible);
-        stepCount(getTaskCount());
+        Assertions.assertTrue(stepCount(getTaskCount()) > 0,
+                "Количество задач не найдено");
     }
 
     @Step("Количество задач '{count}'")
-    public static void stepCount(int count) {
+    public static int stepCount(int count) {
+        return count;
     }
 
     @Step("Поиск задачи {name}")

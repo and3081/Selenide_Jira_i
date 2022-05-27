@@ -7,6 +7,7 @@ import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
 
 public class SysDashboardSteps extends SysDashboardElems {
+    @Step("Вход в проект")
     public static void enteringProject(String projectFullName, String projectName) {
         clickProjectsButton();
         clickItemTest(projectFullName);
