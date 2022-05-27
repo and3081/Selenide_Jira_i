@@ -8,14 +8,16 @@ import ru.vasyukov.pageObjects.TestCreateElem;
 import static com.codeborne.selenide.Condition.*;
 
 public class TestCreateSteps extends TestCreateElem {
-    public static void CreateTask(String themeTask, String typeTask, String version) {
+    @Step("Создание задачи")
+    public static void CreateTask(String themeTask, String typeTask, String version,
+                                  String description, String environment) {
         assertHeadTestCreate();
         inputTypeTask(typeTask);
         inputFieldTheme(themeTask);
         selectFixVersion(version);
         selectTouchVersion(version);
-        inputDescription();
-        inputEnvironment();
+        inputDescription(description);
+        inputEnvironment(environment);
         clickAssignMe();
         clickCreate();
     }
@@ -46,13 +48,13 @@ public class TestCreateSteps extends TestCreateElem {
     }
 
     @Step("Ввод Описание")
-    public static void inputDescription(){
-        Frame.inputToBodyFrame(fieldDescription, "Описание дай пять");
+    public static void inputDescription(String description){
+        Frame.inputToBodyFrame(fieldDescription, description);
     }
 
     @Step("Ввод Окружение")
-    public static void inputEnvironment(){
-        Frame.inputToBodyFrame(fieldEnvironment, "Окружение держи пять");
+    public static void inputEnvironment(String environment){
+        Frame.inputToBodyFrame(fieldEnvironment, environment);
     }
 
     @Step("Нажатие кнопки Назначить меня")

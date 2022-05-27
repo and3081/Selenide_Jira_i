@@ -7,6 +7,7 @@ import ru.vasyukov.pageObjects.TasksElems;
 import static com.codeborne.selenide.Condition.*;
 
 public class TasksSteps extends TasksElems {
+    @Step("Проверка созданной задачи")
     public static void assertTaskCreated(String themeTask) {
         assertHeadAllTasks();
         clickSelectFiltersButton();

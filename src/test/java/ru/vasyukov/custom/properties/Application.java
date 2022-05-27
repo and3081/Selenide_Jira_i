@@ -26,7 +26,4 @@ public interface Application extends Config {
 
     @Key("task.name")
     String taskName();
-
-    @Key("task.type")
-    String taskType();
 }
