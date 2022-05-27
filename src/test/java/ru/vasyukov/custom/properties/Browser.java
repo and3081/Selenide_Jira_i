@@ -2,6 +2,11 @@ package ru.vasyukov.custom.properties;
 
 import org.aeonbits.owner.Config;
 
+/**
+ * Интерфейс для работы с проперти из файла browser.properties - настройки браузеров
+ * usage:  TestData.browser.имяМетодаКлюча()
+ * Описание в файле browser.properties
+ */
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",

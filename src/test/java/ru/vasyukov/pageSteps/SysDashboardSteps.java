@@ -6,6 +6,9 @@ import ru.vasyukov.pageObjects.SysDashboardElems;
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
 
+/**
+ * Класс шагов входа в проект
+ */
 public class SysDashboardSteps extends SysDashboardElems {
     @Step("Вход в проект")
     public static void enteringProject(String projectFullName, String projectName) {

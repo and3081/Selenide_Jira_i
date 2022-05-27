@@ -2,6 +2,10 @@ package ru.vasyukov.custom.properties;
 
 import org.aeonbits.owner.Config;
 
+/**
+ * Интерфейс для работы с проперти из файла application.properties - параметризация тестов
+ * usage:  TestData.application.имяМетодаКлюча()
+ */
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",

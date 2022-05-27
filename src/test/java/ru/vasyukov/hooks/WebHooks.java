@@ -17,6 +17,12 @@ import java.util.Map;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.*;
 
+/**
+ * Класс хуков для настройки web драйвера по проперти browser.properties:
+ *  - локального
+ *  - удаленного (Selenide)
+ *  - ремоут (Selenoid)
+ */
 public class WebHooks {
     /**
      * Объект Listeners в зависимости от настройки в проперти или null
@@ -54,17 +60,10 @@ public class WebHooks {
                 } else Configuration.browser = TestData.browser.typeBrowser();
             else Configuration.browser = "chrome";
         }
-
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("start-maximized");  // устарел, use  getWebDriver().manage().window().maximize();
-//        DesiredCapabilities capabilities = new DesiredCapabilities();  // old
-//        MutableCapabilities capabilities = new MutableCapabilities();  // new
-//        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-//        Configuration.browserCapabilities = capabilities;
     }
 
     /**
-     * Открытие базового url перед каждым тестом
+     * Открытие базового url и максимизация окна перед каждым тестом
      */
     @BeforeEach
     public void openBrowser() {
@@ -72,6 +71,9 @@ public class WebHooks {
         getWebDriver().manage().window().maximize();
     }
 
+    /**
+     * Закрытие web драйвера после каждого теста
+     */
     @AfterEach
     public void close() {
         //closeWindow();  // holdBrowserOpen с этим не работает

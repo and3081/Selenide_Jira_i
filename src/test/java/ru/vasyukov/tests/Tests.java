@@ -1,6 +1,7 @@
 package ru.vasyukov.tests;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,15 +11,26 @@ import ru.vasyukov.pageSteps.*;
 
 import static ru.vasyukov.pageObjects.BaseElems.clickSideBarTaskListButton;
 
+/**
+ * Класс тестов для Jira
+ */
 public class Tests extends WebHooks {
 
+    /**
+     * Тест Авторизации Jira
+     */
     @DisplayName("Тест Авторизации")
+    @Tag("1")
     @Test
     public void TestLogin() {
         AuthSteps.auth();
     }
 
+    /**
+     * Тест входа в проект Jira
+     */
     @DisplayName("Тест проекта")
+    @Tag("2")
     @Test
     public void TestProject() {
         AuthSteps.auth();
@@ -26,7 +38,11 @@ public class Tests extends WebHooks {
                 TestData.application.projectName());
     }
 
+    /**
+     * Тест проверки количества открытых задач в проекте Jira
+     */
     @DisplayName("Тест количества задач проекта")
+    @Tag("3")
     @Test
     public void TestCountInProject() {
         AuthSteps.auth();
@@ -36,7 +52,11 @@ public class Tests extends WebHooks {
         TaskListSteps.assertTaskCount();
     }
 
+    /**
+     * Тест входа в задачу проекта Jira
+     */
     @DisplayName("Тест задачи")
+    @Tag("4")
     @Test
     public void TestTaskInProject() {
         AuthSteps.auth();
@@ -45,7 +65,11 @@ public class Tests extends WebHooks {
         TaskListSteps.assertHeadTaskDetail();
     }
 
+    /**
+     * Тест создания новой задачи в проекте и проведение ее по статусам СДЕЛАТЬ > В РАБОТЕ > ГОТОВО
+     */
     @DisplayName("Тест создания задачи: ")
+    @Tag("5")
     @ParameterizedTest(name = "{displayName} {arguments}")
     @MethodSource("ru.vasyukov.tests.TestParams#providerCreate")
     public void TestCreateTask(String themeTask, String typeTask, String version,

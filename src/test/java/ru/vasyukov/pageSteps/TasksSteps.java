@@ -6,6 +6,9 @@ import ru.vasyukov.pageObjects.TasksElems;
 
 import static com.codeborne.selenide.Condition.*;
 
+/**
+ * Класс шагов работы с задачами
+ */
 public class TasksSteps extends TasksElems {
     @Step("Проверка созданной задачи")
     public static void assertTaskCreated(String themeTask) {

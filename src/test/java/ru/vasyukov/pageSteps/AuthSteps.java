@@ -7,6 +7,9 @@ import ru.vasyukov.pageObjects.AuthElems;
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
 
+/**
+ * Класс шагов авторизации
+ */
 public class AuthSteps extends AuthElems {
     @Step("Авторизация")
     public static void auth() {

@@ -7,6 +7,9 @@ import ru.vasyukov.pageObjects.TestCreateElem;
 
 import static com.codeborne.selenide.Condition.*;
 
+/**
+ * Класс шагов создания новой задачи
+ */
 public class TestCreateSteps extends TestCreateElem {
     @Step("Создание задачи")
     public static void CreateTask(String themeTask, String typeTask, String version,

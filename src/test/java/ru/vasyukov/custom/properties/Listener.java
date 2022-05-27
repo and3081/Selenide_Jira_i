@@ -3,9 +3,9 @@ package ru.vasyukov.custom.properties;
 import org.aeonbits.owner.Config;
 
 /**
- * Интерфейс для работы с проперти из файла listener.properties и системными проперти
+ * Интерфейс для работы с проперти из файла listener.properties - настройки листенера скриншотов для Allure
  * usage:  TestData.listener.имяМетодаКлюча()
- * Описание в файле проперти
+ * Описание в файле listener.properties
  */
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({

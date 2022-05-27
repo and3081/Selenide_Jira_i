@@ -7,6 +7,9 @@ import ru.vasyukov.pageObjects.TaskListElems;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.*;
 
+/**
+ * Класс шагов входа в задачу и проверки количества задач
+ */
 public class TaskListSteps extends TaskListElems {
     @Step("Вход в задачу")
     public static void enteringTask(String projectFullName, String taskName) {
