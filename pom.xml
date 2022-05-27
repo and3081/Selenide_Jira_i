@@ -19,7 +19,12 @@
         <compiler.version>1.8</compiler.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <selenide.version>5.18.0</selenide.version>
+        <!--        awa -->
+        <selenide.version>6.4.0</selenide.version>
+        <!--        awa -->
+        <selenium.support>4.1.1</selenium.support>
+
+        <!--        <selenide.version>5.18.0</selenide.version>-->
         <junit.platform.version>1.7.2</junit.platform.version>
         <junit.jupiter.version>5.7.0</junit.jupiter.version>
         <junit.vintage.version>5.7.0</junit.vintage.version>
@@ -27,7 +32,7 @@
         <cucumber.version>6.9.1</cucumber.version>
         <log4j.version>1.2.17</log4j.version>
         <log4jCore.version>2.13.2</log4jCore.version>
-        <aspectj.version>1.8.10</aspectj.version>
+        <aspectj.version>1.9.4</aspectj.version>
         <owner.version>1.0.10</owner.version>
         <jsch.version>0.1.55</jsch.version>
         <sshd-core.version>2.7.0</sshd-core.version>
@@ -128,6 +133,14 @@
             <groupId>com.jcraft</groupId>
             <artifactId>jsch</artifactId>
             <version>${jsch.version}</version>
+        </dependency>
+
+        <!-- selenium WebDriverListener -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-support</artifactId>
+            <version>${selenium.support}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
