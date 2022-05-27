@@ -6,9 +6,9 @@ import org.aeonbits.owner.Config;
 @Config.Sources({
         "system:properties",
         "system:env",
-        "file:src/test/resources/ru.vasyukov/props.properties"
+        "file:src/test/resources/ru.vasyukov/browser.properties"
 })
-public interface Props extends Config {
+public interface Browser extends Config {
     @Key("webdriver.chrome.local.path")
     String webdriverChromeLocalPath();
 
