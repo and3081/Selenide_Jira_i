@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.*;
 public class TaskListSteps extends TaskListElems {
     @Step("Проверка наличия количества задач")
     public static void assertTaskCount() {
-        problemCount.shouldBe(exist, visible);
+        problemCount.shouldBe(visible);
         stepCount(getTaskCount());
     }
 
@@ -19,19 +19,19 @@ public class TaskListSteps extends TaskListElems {
 
     @Step("Поиск задачи {name}")
     public static void searchTask(String name) {
-        fieldTaskSearch.shouldBe(exist, visible, enabled).setValue(name).pressEnter();
+        fieldTaskSearch.shouldBe(visible, enabled).setValue(name).pressEnter();
     }
 
     @Step("Проверка поиска и клик задачи {name}")
     public static void assertAndClickGoalTask(String name) {
         rowsTaskTitles.shouldBe(size(1))
                 .findBy(attribute("title", name))
-                .shouldBe(exist, visible, enabled).click();
+                .shouldBe(visible, enabled).click();
     }
 
     @Step("Проверка head деталей задачи")
     public static void assertHeadTaskDetail() {
-        goalTaskDetail.shouldBe(exist, visible);
+        goalTaskDetail.shouldBe(visible);
         stepDetail(getGoalTaskStatus(), getGoalTaskVersion());
     }
 

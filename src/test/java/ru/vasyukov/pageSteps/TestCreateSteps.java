@@ -22,18 +22,17 @@ public class TestCreateSteps extends TestCreateElem {
 
     @Step("Проверка head окна Создание задачи")
     public static void assertHeadTestCreate() {
-        headCreateWindow.shouldBe(exist, visible, text("Создание задачи"));
+        headCreateWindow.shouldBe(visible, text("Создание задачи"));
     }
 
     @Step("Ввод Тип задачи {typeTask}")
     public static void inputTypeTask(String typeTask) {
-        fieldTypeTask.shouldBe(exist, visible, enabled)
-                .setValue(Acts.clearField + typeTask);
+        fieldTypeTask.shouldBe(visible, enabled).setValue(Acts.clearField + typeTask);
     }
 
     @Step("Ввод темы задачи {themeTask}")
     public static void inputFieldTheme(String themeTask) {
-        fieldTheme.shouldBe(exist, visible, enabled).setValue(themeTask);
+        fieldTheme.shouldBe(visible, enabled).setValue(themeTask);
     }
 
     @Step("Ввод в Исправить версии")
@@ -48,23 +47,21 @@ public class TestCreateSteps extends TestCreateElem {
 
     @Step("Ввод Описание")
     public static void inputDescription(){
-        //Frame.inputToBodyFrame(fieldNumDescription, "Описание дай пять");
         Frame.inputToBodyFrame(fieldDescription, "Описание дай пять");
     }
 
     @Step("Ввод Окружение")
     public static void inputEnvironment(){
-        //Frame.inputToBodyFrame(fieldNumEnvironment, "Окружение держи пять");
         Frame.inputToBodyFrame(fieldEnvironment, "Окружение держи пять");
     }
 
     @Step("Нажатие кнопки Назначить меня")
     public static void clickAssignMe() {
-        buttonAssignMe.shouldBe(exist, visible, enabled).click();
+        buttonAssignMe.shouldBe(visible, enabled).click();
     }
 
     @Step("Нажатие кнопки Создать")
     public static void clickCreate() {
-        buttonCreate.shouldBe(exist, visible, enabled).click();
+        buttonCreate.shouldBe(visible, enabled).click();
     }
 }

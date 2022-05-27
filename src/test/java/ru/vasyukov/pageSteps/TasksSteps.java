@@ -16,37 +16,37 @@ public class TasksSteps extends TasksElems {
 
     @Step("Проверка head Задачи")
     public static void assertHeadOpenTasks() {
-        headOpenTasks.shouldBe(exist, visible);
+        headOpenTasks.shouldBe(visible);
     }
 
     @Step("Нажатие кнопки Создать задачу")
     public static void clickTaskCreateButton() {
-        buttonTaskCreate.shouldBe(exist, visible, enabled).click();
+        buttonTaskCreate.shouldBe(visible, enabled).click();
     }
 
     @Step("Нажатие кнопки Открыть в диалоговом окне")
     public static void clickTaskCreateOpenDialogButton() {
-        buttonTaskCreateOpenDialog.shouldBe(exist, visible, enabled).click();
+        buttonTaskCreateOpenDialog.shouldBe(visible, enabled).click();
     }
 
     @Step("Проверка head Все задачи")
     public static void assertHeadAllTasks() {
-        headAllTasks.shouldBe(exist, visible);
+        headAllTasks.shouldBe(visible);
     }
 
     @Step("Нажатие кнопки Переключить фильтр")
     public static void clickSelectFiltersButton() {
-        buttonSelectFilters.shouldBe(exist, visible, enabled).click();
+        buttonSelectFilters.shouldBe(visible, enabled).click();
     }
 
     @Step("Нажатие пункта Мои открытые задачи")
     public static void clickItemMyOpenTasks() {
-        itemMyOpenTasks.shouldBe(exist, visible, enabled).click();
+        itemMyOpenTasks.shouldBe(visible, enabled).click();
     }
 
     @Step("Проверка head Моей задачи: {taskName}")
     public static void assertHeadMyTask(String taskName) {
-        headMyTask.shouldBe(exist, visible, exactText(taskName));
+        headMyTask.shouldBe(visible, exactText(taskName));
     }
 
     @Step("Проверка статуса моей задачи: {status}")
@@ -57,16 +57,16 @@ public class TasksSteps extends TasksElems {
 
     @Step("Нажатие кнопки В работе")
     public static void clickStatusInWorkButton() {
-        buttonStatusInWork.shouldBe(exist, visible, enabled).click();
+        buttonStatusInWork.shouldBe(visible, enabled).click();
     }
 
     @Step("Нажатие кнопки Бизнес-процесс")
     public static void clickStatusProcessButton() {
-        buttonStatusProcess.shouldBe(exist, visible, enabled).click();
+        buttonStatusProcess.shouldBe(visible, enabled).click();
     }
 
     @Step("Нажатие пункта Выполнено")
     public static void clickStatusDoneButton() {
-        buttonStatusDone.shouldBe(exist, visible, enabled).click();
+        buttonStatusDone.shouldBe(visible, enabled).click();
     }
 }
