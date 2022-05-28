@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class TestCreateElem extends BaseElems {
+public class CreateElem extends BaseElems {
     public static final String baseCreateWindow = "//section[@id[contains(.,'create-issue-dialog')]]";
     public static final SelenideElement headCreateWindow = $x(baseCreateWindow + "//h2");
     public static final SelenideElement fieldTypeTask = $x(baseCreateWindow + "//input[@id='issuetype-field']");

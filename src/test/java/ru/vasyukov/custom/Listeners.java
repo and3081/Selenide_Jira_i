@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.WebDriverListener;
-import ru.vasyukov.custom.properties.TestData;
+import ru.vasyukov.custom.properties.PropertyData;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -23,21 +23,21 @@ public class Listeners implements WebDriverListener {
     /**
      * Тип листенера из проперти
      */
-    private static final String listenerType = TestData.listener.listenerType();
+    private static final String listenerType = PropertyData.listener.listenerType();
     /**
      * Режим скриншотов вокруг метода из проперти
      */
-    private static final String listenerAroundMethod = TestData.listener.listenerAroundMethod();
+    private static final String listenerAroundMethod = PropertyData.listener.listenerAroundMethod();
     /**
      * Список методов для скриншотов из проперти
      */
-    private static final String listenerMethodList = TestData.listener.listenerMethodList();
+    private static final String listenerMethodList = PropertyData.listener.listenerMethodList();
     private static boolean isListenerMethodList = false;
     private static List<String> MethodList;
     /**
      * Mode скриншотов для листенера с элементами из проперти
      */
-    private static final String listenerModeElements = TestData.listener.listenerModeElements();
+    private static final String listenerModeElements = PropertyData.listener.listenerModeElements();
 
     static {
         if (listenerMethodList != null && !listenerMethodList.trim().isEmpty()) {

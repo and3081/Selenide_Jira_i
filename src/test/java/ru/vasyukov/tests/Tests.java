@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import ru.vasyukov.custom.properties.TestData;
+import ru.vasyukov.custom.properties.PropertyData;
 import ru.vasyukov.hooks.WebHooks;
 import ru.vasyukov.pageSteps.*;
 
@@ -34,8 +34,8 @@ public class Tests extends WebHooks {
     @Test
     public void TestProject() {
         AuthSteps.auth();
-        SysDashboardSteps.enteringProject(TestData.application.projectFullName(),
-                TestData.application.projectName());
+        SysDashboardSteps.enteringProject(PropertyData.application.projectFullName(),
+                PropertyData.application.projectName());
     }
 
     /**
@@ -46,8 +46,8 @@ public class Tests extends WebHooks {
     @Test
     public void TestCountInProject() {
         AuthSteps.auth();
-        SysDashboardSteps.enteringProject(TestData.application.projectFullName(),
-                TestData.application.projectName());
+        SysDashboardSteps.enteringProject(PropertyData.application.projectFullName(),
+                PropertyData.application.projectName());
         clickSideBarTaskListButton();
         TaskListSteps.assertTaskCount();
     }
@@ -60,8 +60,8 @@ public class Tests extends WebHooks {
     @Test
     public void TestTaskInProject() {
         AuthSteps.auth();
-        TaskListSteps.enteringTask(TestData.application.projectFullName(),
-                TestData.application.taskName());
+        TaskListSteps.enteringTask(PropertyData.application.projectFullName(),
+                PropertyData.application.taskName());
         TaskListSteps.assertHeadTaskDetail();
     }
 
@@ -71,18 +71,18 @@ public class Tests extends WebHooks {
     @DisplayName("Тест создания задачи: ")
     @Tag("5")
     @ParameterizedTest(name = "{displayName} {arguments}")
-    @MethodSource("ru.vasyukov.tests.TestParams#providerCreate")
+    @MethodSource("ru.vasyukov.tests.Params#providerCreate")
     public void TestCreateTask(String themeTask, String typeTask, String version,
                                String description, String environment,
                                String statDo, String statInWork, String statDone) {
         AuthSteps.auth();
-        SysDashboardSteps.enteringProject(TestData.application.projectFullName(),
-                TestData.application.projectName());
+        SysDashboardSteps.enteringProject(PropertyData.application.projectFullName(),
+                PropertyData.application.projectName());
         TasksSteps.assertHeadOpenTasks();
         TasksSteps.clickTaskCreateButton();
         TasksSteps.clickTaskCreateOpenDialogButton();
 
-        TestCreateSteps.CreateTask(themeTask, typeTask, version, description, environment);
+        CreateSteps.CreateTask(themeTask, typeTask, version, description, environment);
         TasksSteps.assertTaskCreated(themeTask);
         TasksSteps.assertMyTaskStatus(statDo);
 

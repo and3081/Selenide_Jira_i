@@ -9,7 +9,7 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 /**
  * Класс параметризации данных для тестов
  */
-public class TestParams {
+public class Params {
     /**
      * Параметризация данных для создания новой задачи:
      *   - название задачи

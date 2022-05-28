@@ -9,7 +9,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.WebDriverListener;
 import ru.vasyukov.custom.Listeners;
-import ru.vasyukov.custom.properties.TestData;
+import ru.vasyukov.custom.properties.PropertyData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,13 +31,13 @@ public class WebHooks {
 
     // Настройка опций браузера и листенера первый раз
     static {
-        Configuration.timeout = Long.parseLong(TestData.browser.defaultTimeoutImplicitMs());
+        Configuration.timeout = Long.parseLong(PropertyData.browser.defaultTimeoutImplicitMs());
         if (listener != null) addListener(listener);
-        if (TestData.browser.headlessMode() != null) Configuration.headless = true;
-        if (TestData.browser.dontCloseBrowser() != null) Configuration.holdBrowserOpen = true;
+        if (PropertyData.browser.headlessMode() != null) Configuration.headless = true;
+        if (PropertyData.browser.dontCloseBrowser() != null) Configuration.holdBrowserOpen = true;
 
-        if (TestData.browser.remoteUrl() != null) {
-            Configuration.remote = TestData.browser.remoteUrl();
+        if (PropertyData.browser.remoteUrl() != null) {
+            Configuration.remote = PropertyData.browser.remoteUrl();
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("browserName", "chrome");
             capabilities.setCapability("browserVersion", "101.0");
@@ -47,17 +47,17 @@ public class WebHooks {
             capabilities.setCapability("selenoid:options", map);
             Configuration.browserCapabilities = capabilities;
         } else {
-            if ((TestData.browser.typeBrowser() == null || TestData.browser.typeBrowser().equals("chrome")) &&
-                    TestData.browser.webdriverChromeLocalPath() != null) {
-                System.setProperty("webdriver.chrome.driver", TestData.browser.webdriverChromeLocalPath());
+            if ((PropertyData.browser.typeBrowser() == null || PropertyData.browser.typeBrowser().equals("chrome")) &&
+                    PropertyData.browser.webdriverChromeLocalPath() != null) {
+                System.setProperty("webdriver.chrome.driver", PropertyData.browser.webdriverChromeLocalPath());
                 WebDriver driver = new ChromeDriver();
                 setWebDriver(driver);
-            } else if (TestData.browser.typeBrowser() != null)
-                if (TestData.browser.typeBrowser().equals("edge")) {
-                    System.setProperty("webdriver.edge.driver", TestData.browser.webdriverEdgeLocalPath());
+            } else if (PropertyData.browser.typeBrowser() != null)
+                if (PropertyData.browser.typeBrowser().equals("edge")) {
+                    System.setProperty("webdriver.edge.driver", PropertyData.browser.webdriverEdgeLocalPath());
                     WebDriver driver = new EdgeDriver();
                     setWebDriver(driver);
-                } else Configuration.browser = TestData.browser.typeBrowser();
+                } else Configuration.browser = PropertyData.browser.typeBrowser();
             else Configuration.browser = "chrome";
         }
     }
@@ -67,7 +67,7 @@ public class WebHooks {
      */
     @BeforeEach
     public void openBrowser() {
-        open(TestData.application.baseUrlJira());
+        open(PropertyData.application.baseUrlJira());
         getWebDriver().manage().window().maximize();
     }
 

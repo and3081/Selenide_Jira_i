@@ -2,7 +2,7 @@ package ru.vasyukov.custom.properties;
 
 import org.aeonbits.owner.ConfigFactory;
 
-public class TestData {
+public class PropertyData {
     /**
      * static метод для работы с проперти из файла browser.properties и listener.properties
      */

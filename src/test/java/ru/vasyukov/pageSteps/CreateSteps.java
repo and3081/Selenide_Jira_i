@@ -3,14 +3,14 @@ package ru.vasyukov.pageSteps;
 import io.qameta.allure.Step;
 import ru.vasyukov.custom.Acts;
 import ru.vasyukov.custom.Frame;
-import ru.vasyukov.pageObjects.TestCreateElem;
+import ru.vasyukov.pageObjects.CreateElem;
 
 import static com.codeborne.selenide.Condition.*;
 
 /**
  * Класс шагов создания новой задачи
  */
-public class TestCreateSteps extends TestCreateElem {
+public class CreateSteps extends CreateElem {
     @Step("Создание задачи")
     public static void CreateTask(String themeTask, String typeTask, String version,
                                   String description, String environment) {
