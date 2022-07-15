@@ -50,18 +50,14 @@ public class Listeners implements WebDriverListener {
 
     /**
      * Геттер одного из трех вариантов листенеров в зависимости от настройки проперти
-     *
      * @return листенер
      */
     public static WebDriverListener getListener() {
         if (listenerType != null) {
             switch (listenerType) {
-                case "all":
-                    return listenerAll;
-                case "driver":
-                    return listenerWebDriver;
-                case "elements":
-                    return listenerWebElement;
+                case "all": return listenerAll;
+                case "driver": return listenerWebDriver;
+                case "elements": return listenerWebElement;
             }
         }
         return null;
@@ -69,7 +65,6 @@ public class Listeners implements WebDriverListener {
 
     /**
      * Проверка имени метода по списку для выборки
-     *
      * @param nameMethod имя метода для листенера
      * @return true- выполнять действие (все методы или есть в списке для выборки)
      */
@@ -79,16 +74,13 @@ public class Listeners implements WebDriverListener {
 
     /**
      * Геттер одного из вариантов Вокруг в зависимости от настройки проперти
-     *
      * @return 1 перед действием, 2 вокруг, 3 после действия (+click перед)
      */
     private static int getListenerAround() {
         if (listenerAroundMethod != null) {
             switch (listenerAroundMethod) {
-                case "before":
-                    return 1;
-                case "after":
-                    return 3;
+                case "before": return 1;
+                case "after": return 3;
             }
         }
         return 2;
@@ -96,16 +88,13 @@ public class Listeners implements WebDriverListener {
 
     /**
      * Геттер одного из вариантов Mode скриншота элементов в зависимости от настройки проперти
-     *
      * @return Mode 0 both, 1 window, 2 element
      */
     private static int getListenerModeElements() {
         if (listenerModeElements != null) {
             switch (listenerModeElements) {
-                case "both":
-                    return 0;
-                case "window":
-                    return 1;
+                case "both": return 0;
+                case "window": return 1;
             }
         }
         return 2;
@@ -113,7 +102,6 @@ public class Listeners implements WebDriverListener {
 
     /**
      * Действие ПЕРЕД для общего листенера (скриншот)
-     *
      * @param target объект назначения: WebDriver или WebElement
      * @param method метод назначения (перед которым исполнился листенер)
      * @param args   аргументы метода назначения
@@ -127,7 +115,6 @@ public class Listeners implements WebDriverListener {
 
     /**
      * Действие ПОСЛЕ для общего листенера (скриншот)
-     *
      * @param target объект назначения: WebDriver или WebElement
      * @param method метод назначения (после которого исполнился листенер)
      * @param args   аргументы метода назначения
@@ -142,7 +129,6 @@ public class Listeners implements WebDriverListener {
 
     /**
      * Действие ПЕРЕД для листенера действий с драйвером (скриншот окна)
-     *
      * @param driver объект назначения: WebDriver
      * @param method метод назначения (перед которым исполнился листенер)
      * @param args   аргументы метода назначения
@@ -156,7 +142,6 @@ public class Listeners implements WebDriverListener {
 
     /**
      * Действие ПОСЛЕ для листенера действий с драйвером (скриншот окна)
-     *
      * @param driver объект назначения: WebDriver
      * @param method метод назначения (после которого исполнился листенер)
      * @param args   аргументы метода назначения
@@ -172,7 +157,6 @@ public class Listeners implements WebDriverListener {
 
     /**
      * Действие ПЕРЕД для листенера действий с элементом (скриншот окна или элемента см.listenerModeElements)
-     *
      * @param lastListenedDriver драйвер от последнего вызова драйвер-листенера или null
      * @param el                 объект назначения: WebElement
      * @param method             метод назначения (перед которым исполнился листенер)
@@ -195,7 +179,6 @@ public class Listeners implements WebDriverListener {
 
     /**
      * Действие ПОСЛЕ для листенера действий с элементом (скриншот окна или элемента см.listenerModeElements)
-     *
      * @param lastListenedDriver драйвер от последнего вызова драйвер-листенера или null
      * @param el                 объект назначения: WebElement
      * @param method             метод назначения (после которого исполнился листенер)
