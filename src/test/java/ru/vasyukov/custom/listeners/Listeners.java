@@ -1,10 +1,11 @@
-package ru.vasyukov.custom;
+package ru.vasyukov.custom.listeners;
 
+import ru.vasyukov.custom.properties.TestData;
+import ru.vasyukov.custom.screenshoters.Screenshoter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.WebDriverListener;
-import ru.vasyukov.custom.properties.PropertyData;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -23,21 +24,21 @@ public class Listeners implements WebDriverListener {
     /**
      * Тип листенера из проперти
      */
-    private static final String listenerType = PropertyData.listener.listenerType();
+    private static final String listenerType = TestData.listener.listenerType();
     /**
      * Режим скриншотов вокруг метода из проперти
      */
-    private static final String listenerAroundMethod = PropertyData.listener.listenerAroundMethod();
+    private static final String listenerAroundMethod = TestData.listener.listenerAroundMethod();
     /**
      * Список методов для скриншотов из проперти
      */
-    private static final String listenerMethodList = PropertyData.listener.listenerMethodList();
+    private static final String listenerMethodList = TestData.listener.listenerMethodList();
     private static boolean isListenerMethodList = false;
     private static List<String> MethodList;
     /**
      * Mode скриншотов для листенера с элементами из проперти
      */
-    private static final String listenerModeElements = PropertyData.listener.listenerModeElements();
+    private static final String listenerModeElements = TestData.listener.listenerModeElements();
 
     static {
         if (listenerMethodList != null && !listenerMethodList.trim().isEmpty()) {
@@ -157,10 +158,10 @@ public class Listeners implements WebDriverListener {
 
     /**
      * Действие ПЕРЕД для листенера действий с элементом (скриншот окна или элемента см.listenerModeElements)
-     * @param lastListenedDriver драйвер от последнего вызова драйвер-листенера или null
-     * @param el                 объект назначения: WebElement
-     * @param method             метод назначения (перед которым исполнился листенер)
-     * @param args               аргументы метода назначения
+     * @param lastListenedDriver  драйвер от последнего вызова драйвер-листенера или null
+     * @param el     объект назначения: WebElement
+     * @param method метод назначения (перед которым исполнился листенер)
+     * @param args   аргументы метода назначения
      */
     private static void actionBeforeWebElement(WebDriver lastListenedDriver, WebElement el, Method method, Object[] args) {
         // метод click- всегда, т.к.после его м.не быть из-за смены страницы
@@ -179,11 +180,11 @@ public class Listeners implements WebDriverListener {
 
     /**
      * Действие ПОСЛЕ для листенера действий с элементом (скриншот окна или элемента см.listenerModeElements)
-     * @param lastListenedDriver драйвер от последнего вызова драйвер-листенера или null
-     * @param el                 объект назначения: WebElement
-     * @param method             метод назначения (после которого исполнился листенер)
-     * @param args               аргументы метода назначения
-     * @param result             возврат метода назначения (null для void)
+     * @param lastListenedDriver  драйвер от последнего вызова драйвер-листенера или null
+     * @param el     объект назначения: WebElement
+     * @param method метод назначения (после которого исполнился листенер)
+     * @param args   аргументы метода назначения
+     * @param result возврат метода назначения (null для void)
      */
     private static void actionAfterWebElement(WebDriver lastListenedDriver, WebElement el, Method method, Object[] args, Object result) {
         if (getListenerAround() >= 2 && checkMethod(method.getName())) {
