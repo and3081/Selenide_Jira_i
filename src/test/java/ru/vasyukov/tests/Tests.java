@@ -13,9 +13,10 @@ import static ru.vasyukov.pageObjects.BaseElems.clickSideBarTaskListButton;
 
 /**
  * Класс тестов для Jira
+ * @author Васюков А.Ю.  GitHub  https://github.com/and3081/Selenide_Jira_i
+ * @version 1.0
  */
 public class Tests extends WebHooks {
-
     /**
      * Тест Авторизации Jira
      */
@@ -26,71 +27,71 @@ public class Tests extends WebHooks {
         AuthSteps.auth();
     }
 
-//    /**
-//     * Тест входа в проект Jira
-//     */
-//    @DisplayName("Тест проекта")
-//    @Tag("2")
-//    @Test
-//    public void TestProject() {
-//        AuthSteps.auth();
-//        SysDashboardSteps.enteringProject(TestData.application.projectFullName(),
-//                TestData.application.projectName());
-//    }
-//
-//    /**
-//     * Тест проверки количества открытых задач в проекте Jira
-//     */
-//    @DisplayName("Тест количества задач проекта")
-//    @Tag("3")
-//    @Test
-//    public void TestCountInProject() {
-//        AuthSteps.auth();
-//        SysDashboardSteps.enteringProject(TestData.application.projectFullName(),
-//                TestData.application.projectName());
-//        clickSideBarTaskListButton();
-//        TaskListSteps.assertTaskCount();
-//    }
-//
-//    /**
-//     * Тест входа в задачу проекта Jira
-//     */
-//    @DisplayName("Тест задачи")
-//    @Tag("4")
-//    @Test
-//    public void TestTaskInProject() {
-//        AuthSteps.auth();
-//        TaskListSteps.enteringTask(TestData.application.projectFullName(),
-//                TestData.application.taskName());
-//        TaskListSteps.assertHeadTaskDetail();
-//    }
-//
-//    /**
-//     * Тест создания новой задачи в проекте и проведение ее по статусам СДЕЛАТЬ > В РАБОТЕ > ГОТОВО
-//     */
-//    @DisplayName("Тест создания задачи: ")
-//    @Tag("5")
-//    @ParameterizedTest(name = "{displayName} {arguments}")
-//    @MethodSource("ru.vasyukov.tests.Params#providerCreate")
-//    public void TestCreateTask(String themeTask, String typeTask, String version,
-//                               String description, String environment,
-//                               String statDo, String statInWork, String statDone) {
-//        AuthSteps.auth();
-//        SysDashboardSteps.enteringProject(TestData.application.projectFullName(),
-//                TestData.application.projectName());
-//        TasksSteps.assertHeadOpenTasks();
-//        TasksSteps.clickTaskCreateButton();
-//        TasksSteps.clickTaskCreateOpenDialogButton();
-//
-//        CreateSteps.CreateTask(themeTask, typeTask, version, description, environment);
-//        TasksSteps.assertTaskCreated(themeTask);
-//        TasksSteps.assertMyTaskStatus(statDo);
-//
-//        TasksSteps.clickStatusInWorkButton();
-//        TasksSteps.assertMyTaskStatus(statInWork);
-//
-//        TasksSteps.clickStatusProcessButton();
-//        TasksSteps.clickStatusDoneButton();
-//        TasksSteps.assertMyTaskStatus(statDone);
-//    }
+    /**
+     * Тест входа в проект Jira
+     */
+    @DisplayName("Тест проекта")
+    @Tag("2")
+    @Test
+    public void TestProject() {
+        AuthSteps.auth();
+        SysDashboardSteps.enteringProject(TestData.application.projectFullName(),
+                TestData.application.projectName());
+    }
+
+    /**
+     * Тест проверки количества открытых задач в проекте Jira
+     */
+    @DisplayName("Тест количества задач проекта")
+    @Tag("3")
+    @Test
+    public void TestCountInProject() {
+        AuthSteps.auth();
+        SysDashboardSteps.enteringProject(TestData.application.projectFullName(),
+                TestData.application.projectName());
+        clickSideBarTaskListButton();
+        TaskListSteps.assertTaskCount();
+    }
+
+    /**
+     * Тест входа в задачу проекта Jira
+     */
+    @DisplayName("Тест задачи")
+    @Tag("4")
+    @Test
+    public void TestTaskInProject() {
+        AuthSteps.auth();
+        TaskListSteps.enteringTask(TestData.application.projectFullName(),
+                TestData.application.taskName());
+        TaskListSteps.assertHeadTaskDetail();
+    }
+
+    /**
+     * Тест создания новой задачи в проекте и проведение ее по статусам СДЕЛАТЬ > В РАБОТЕ > ГОТОВО
+     */
+    @DisplayName("Тест создания задачи: ")
+    @Tag("5")
+    @ParameterizedTest(name = "{displayName} {arguments}")
+    @MethodSource("ru.vasyukov.tests.DataProvider#providerCreate")
+    public void TestCreateTask(String themeTask, String typeTask, String version,
+                               String description, String environment,
+                               String statDo, String statInWork, String statDone) {
+        AuthSteps.auth();
+        SysDashboardSteps.enteringProject(TestData.application.projectFullName(),
+                TestData.application.projectName());
+        TasksSteps.assertHeadOpenTasks();
+        TasksSteps.clickTaskCreateButton();
+        TasksSteps.clickTaskCreateOpenDialogButton();
+
+        CreateSteps.CreateTask(themeTask, typeTask, version, description, environment);
+        TasksSteps.assertTaskCreated(themeTask);
+        TasksSteps.assertMyTaskStatus(statDo);
+
+        TasksSteps.clickStatusInWorkButton();
+        TasksSteps.assertMyTaskStatus(statInWork);
+
+        TasksSteps.clickStatusProcessButton();
+        TasksSteps.clickStatusDoneButton();
+        TasksSteps.assertMyTaskStatus(statDone);
+    }
 }
